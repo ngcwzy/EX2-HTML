@@ -3,64 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <title>Shinchan - Homepage</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        header, section, footer {
+            margin: 30px 0;
+        }
+        h1, h2 {
+            margin: 15px 0;
+        }
+        p {
+            margin: 10px 0;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px 0;
+            width: 100%;
+        }
+        td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #000;
+        }
+        form p {
+            margin: 20px 0;
+        }
+        input, select, textarea {
+            margin-top: 5px;
+            padding: 6px;
+        }
+        button {
+            padding: 8px 20px;
+            cursor: pointer;
+        }
+        /* 媒体资源容器：图片+视频+图片 统一排版 */
+        .media-container {
+            width: 100%;
+            margin: 15px 0;
+        }
+        .media-container img,
+        .media-container video {
+            width: 100%;
+            display: block;
+            margin: 10px 0;
+            border: none;
+        }
+        .platform-txt {
+            font-weight: 600;
+            margin: 5px 0 15px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Shinchan</h1>
         <p>CRAYON SHINCHAN THE NAUGHTIEST Boy In Town</p>
-        <!-- 顶部banner图片 -->
-        <img src="assets/shinchan-coal-town-poster.jpg" alt="Shinchan Banner" width="100%">
     </header>
 
- <section>
-  <h2>Shinchan: Shiro and the Coal Town</h2>
-  <p>(Available on: Nintendo Switch and Windows PC)</p>
+    <section>
+        <h2>Shinchan: Shiro and the Coal Town</h2>
+        <!-- 平台文字（和PDF一致） -->
+        <p class="platform-txt">(Available on: Nintendo Switch and Windows PC)</p>
 
-  <!-- 视频（核心代码） -->
-  <video width="100%" controls>
-    <source src="assets/shinchan-and-the-coal-town.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+        <!-- 核心布局：图片1 → 视频 → 图片2 顺序 -->
+        <div class="media-container">
+            <!-- 第一张图片：游戏海报/横幅 -->
+            <img src="assets/shin-chan-banner.jpg" alt="Shinchan Game Poster">
+            <!-- 视频：核心视频资源 -->
+            <video controls>
+                <source src="assets/shinchan-and-the-coal-town.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- 第二张图片：游戏/角色配图 -->
+            <img src="assets/shinchan-coal-town-poster.jpg" alt="Shinchan Characters Banner">
+        </div>
 
-  <p>0:00 / 1:38</p>
-</section>
+        <!-- 视频时长（和PDF一致） -->
+        <p>0:00 / 1:38</p>
+    </section>
+
     <section>
         <h2>The Characters</h2>
-        <table border="1" width="100%">
+        <table>
             <tr>
                 <td><strong>Character</strong></td>
                 <td><strong>Image</strong></td>
                 <td><strong>Description</strong></td>
             </tr>
             <tr>
-                <td>Shinnosuke Nohara</td>
+                <td>Shinnosuke Nohara (Shinchan)</td>
                 <td><img src="assets/character-shinchan.png" alt="Shinchan" width="100"></td>
-                <td>The mischievous 5-year-old protagonist.</td>
+                <td>The mischievous 5-year-old protagonist known for his hilarious antics and love of choco chips.</td>
             </tr>
             <tr>
                 <td>Misae Nohara (Mom)</td>
                 <td><img src="assets/character-misae.webp" alt="Misae" width="100"></td>
-                <td>Shinchan’s short-tempered but loving mother.</td>
+                <td>Shinchan’s short-tempered but loving mother, always trying to keep him in line.</td>
             </tr>
             <tr>
                 <td>Hiroshi Nohara (Dad)</td>
                 <td><img src="assets/character-hiroshi.webp" alt="Hiroshi" width="100"></td>
-                <td>The laid-back father.</td>
+                <td>The laid-back father who works at a company and enjoys his evening beer.</td>
             </tr>
             <tr>
                 <td>Himawari</td>
                 <td><img src="assets/character-himawari.png" alt="Himawari" width="100"></td>
-                <td>The youngest sister.</td>
+                <td>The youngest of the Noharas. Loves shiny objects and brandname goods. Smiles sideways, like Shinchan.</td>
             </tr>
             <tr>
-                <td>Shiro</td>
+                <td>Yukino Nohara (Shiro)</td>
                 <td><img src="assets/character-shiro.png" alt="Shiro" width="100"></td>
-                <td>The family dog.</td>
+                <td>The family dog - small, fluffy, and sometimes the most sensible member of the household.</td>
             </tr>
             <tr>
                 <td>Toru Kazama</td>
                 <td><img src="assets/character-toru-kazama.webp" alt="Kazama" width="100"></td>
-                <td>Smart and responsible friend.</td>
+                <td>The smart and responsible friend of Shinchan, often the voice of reason in the group.</td>
             </tr>
         </table>
     </section>
@@ -72,21 +139,26 @@
                 <label>Your favorite:</label>
                 <select>
                     <option>Shinchan</option>
+                    <option>Misae Nohara (Mom)</option>
+                    <option>Hiroshi Nohara (Dad)</option>
+                    <option>Himawari</option>
+                    <option>Yukino Nohara (Shiro)</option>
+                    <option>Toru Kazama</option>
                 </select>
             </p>
             <p>
-                <label>Character not in the list?</label><br>
-                <input type="text">
+                <label>Character not in the list? Write their name below:</label><br>
+                <input type="text" placeholder="Your other favourite character: Enter character name">
             </p>
             <p>
                 <label>Why do you like this character?</label><br>
-                <textarea rows="3"></textarea>
+                <textarea rows="3" placeholder="State your reasons in a couple of lines..."></textarea>
             </p>
 
-            <h2>Tell us about yourself</h2>
+            <h2>Tell us a bit more about yourself</h2>
             <p>
                 <label>Your Name:</label><br>
-                <input type="text">
+                <input type="text" placeholder="Enter your name">
             </p>
             <p>
                 <label>Your Gender:</label><br>
@@ -94,12 +166,12 @@
                 <input type="radio" name="gender"> Female
             </p>
             <p>
-                <label>Date of Birth:</label><br>
+                <label>Your Date of Birth:</label><br>
                 <input type="text" placeholder="dd.mm.yyyy">
             </p>
             <p>
                 <label>Your Email:</label><br>
-                <input type="email">
+                <input type="email" placeholder="Enter your email">
             </p>
             <button type="submit">Submit</button>
         </form>
@@ -107,7 +179,7 @@
 
     <footer>
         <p>&copy; 2025 Programming4</p>
-        <p>Contact: shinchan-lovers@justlearninghtml.com</p>
+        <p>Get in touch with us: shinchan-lovers@justlearninghtml.com</p>
     </footer>
 </body>
 </html>
